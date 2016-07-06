@@ -20,9 +20,26 @@ app.set("twig options", {
     strict_variables: false
 });
 
-app.get('/', function(req, res){
-  res.render('index.twig', {
-  });
+app.get('/:platform', function(req, res){
+    var platform = req.params.platform;
+    
+    var contents = fs.readFileSync("ressources/versions.json");
+    var jsonContent = JSON.parse(contents,null,2); 
+    var apps = jsonContent.apps;
+
+    var application = undefined;
+    for (app of apps){
+        if(platform == app.platform){
+            application = app; 
+        }
+    }
+    if(application == undefined){
+        res.json({
+            "error"     : "Plateforme incorrecte"
+        });
+    }else{
+        res.json(application);
+    }
 });
 
 app.listen(self.port,self.ipaddress);
