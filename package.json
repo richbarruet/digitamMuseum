@@ -1,0 +1,10 @@
+{
+    "name": "digitalMuseum - Vérification de version",
+    "version": "0.1.0",
+    "dependencies": {
+        "express": "~4.14.0",
+        "twig": "~0.9.5"
+    },
+    "author": "Richard <richard.barruet@cgi.com>",
+    "description": ""
+}
