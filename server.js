@@ -69,12 +69,10 @@ app.get('/version/:platform', function(req, res){
     */
 });
 
-/*
 app.get('/', function(req, res){
     res.render("upload.twig");
 });
-*/
-/*
+
 app.post('/upload',upload.single('source'),function(req,res,next){
     
     if(req.file !== undefined && req.file.path !== undefined) {
@@ -101,5 +99,5 @@ app.post('/upload',upload.single('source'),function(req,res,next){
         console.log(req.file);
     }
 })
-*/
+
 app.listen(port,ipaddress);
