@@ -1,5 +1,5 @@
 var express = require('express');
-var Twig = require("twig")
+var Twig = require("twig");
 const fs = require('fs');
 
 var app = express();
