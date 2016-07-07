@@ -67,6 +67,29 @@ app.get('/version/:platform', function(req, res){
         res.json(application);
     }
     */
+
+    fs.readFile(dest + "versions.json" , function (err, data) {
+            if(err) {
+                res.send(500).send(err);
+            }
+            
+            var jsonContent = JSON.parse(data,null,2);
+            var apps = jsonContent.apps;
+
+            var application = undefined;
+            for (app of apps){
+                if(platform == app.platform){
+                    application = app; 
+                }
+            }
+            if(application == undefined){
+                res.json({
+                    "error"     : "Plateforme incorrecte"
+                });
+            }else{
+                res.json(application);
+            }
+        });
 });
 
 app.get('/', function(req, res){
