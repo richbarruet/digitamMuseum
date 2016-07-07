@@ -69,10 +69,11 @@ app.get('/version/:platform', function(req, res){
     }
 });
 
-
+/*
 app.get('/', function(req, res){
     res.render("upload.twig");
 });
+*/
 /*
 app.post('/upload',upload.single('source'),function(req,res,next){
     
