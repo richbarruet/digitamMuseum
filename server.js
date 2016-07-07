@@ -6,14 +6,14 @@ var app = express();
 
 var self = this;
 
-self.ipaddress  = process.env.OPENSHIFT_NODEJS_IP ||  process.env.OPENSHIFT_INTERNAL_IP;
-self.port       = process.env.OPENSHIFT_INTERNAL_PORT || process.env.OPENSHIFT_NODEJS_PORT || 8091;
+ipaddress  = process.env.OPENSHIFT_NODEJS_IP ||  process.env.OPENSHIFT_INTERNAL_IP;
+port       = process.env.OPENSHIFT_INTERNAL_PORT || process.env.OPENSHIFT_NODEJS_PORT || 8091;
 
-if (typeof self.ipaddress === "undefined") {
+if (typeof ipaddress === "undefined") {
      //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
      //  allows us to run/test the app locally.
      console.warn('No OPENSHIFT_*_IP var, using 127.0.0.1');
-     self.ipaddress = "127.0.0.1";
+     ipaddress = "127.0.0.1";
 };
 
 app.set("twig options", {
@@ -42,4 +42,4 @@ app.get('/:platform', function(req, res){
     }
 });
 
-app.listen(self.port,self.ipaddress);
+app.listen(port,ipaddress);
