@@ -20,6 +20,10 @@ app.set("twig options", {
     strict_variables: false
 });
 
+app.get('/', function(req, res){
+    res.redirect("/android");
+});
+
 app.get('/:platform', function(req, res){
     var platform = req.params.platform;
     
