@@ -49,6 +49,7 @@ app.get('/:platform', function(req, res){
     var contents = fs.readFileSync("ressources/versions.json");
     var jsonContent = JSON.parse(contents,null,2); 
     var apps = jsonContent.apps;
+    */
 
     var application = undefined;
     for (app of apps){
@@ -63,7 +64,6 @@ app.get('/:platform', function(req, res){
     }else{
         res.json(application);
     }
-    */
 });
 
 app.listen(port,ipaddress);
