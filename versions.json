@@ -1,0 +1,13 @@
+{
+    "apps" : [
+        {
+            "platform"	: "android",
+            "version"   : "1.0.0",
+            "url"       : "URLpourAndroid"
+        },{
+            "platform"	: "ios",
+            "version"   : "1.0.0",
+            "url"       : "URLpourIOS"
+        }
+    ]
+}

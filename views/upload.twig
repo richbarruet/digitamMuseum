@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Upload version file</title>
+    </head>
+
+    <body>
+        <h1>Telechargement du fichier de version</h1>
+
+        <form id="upload"
+        action="/upload"
+        enctype="multipart/form-data" 
+        method="post">
+            <p>
+                <table>
+                    <tr>
+                        <td><label for="source">Fichier</label></td>
+                        <td><input type="file" name="source" id="source" autofocus required="true"/></td>
+                    </tr>
+                    <tr>
+                        <td/>
+                        <td><input type="submit" /></td>
+                    </tr>
+                </table>
+            </p>
+        </form>
+    </body>
+</html>

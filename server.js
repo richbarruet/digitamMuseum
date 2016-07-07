@@ -1,6 +1,9 @@
 var express     = require('express');
 var Twig        = require("twig");
 var fs          = require('fs');
+var dest        = process.env.OPENSHIFT_DATA_DIR !== undefined ? process.env.OPENSHIFT_DATA_DIR : './ressources/'
+var multer      = require('multer');
+var upload = multer({dest: dest});
 
 var app         = express();
 
@@ -42,7 +45,7 @@ app.get('/', function(req, res){
     res.redirect("/android");
 });
 */
-app.get('/:platform', function(req, res){
+app.get('/version/:platform', function(req, res){
     var platform = req.params.platform;
     
     /*
@@ -65,5 +68,37 @@ app.get('/:platform', function(req, res){
         res.json(application);
     }
 });
+
+
+app.get('/', function(req, res){
+    res.render("upload.twig");
+});
+
+app.post('/upload',upload.single('source'),function(req,res,next){
+    
+    if(req.file !== undefined && req.file.path !== undefined) {
+        
+        var filename = req.file.originalname;
+        fs.readFile(req.file.path, function (err, data) {
+            if(err) {
+                res.send(500).send(err);
+            }
+            var filePath = dest + 'versions.json';
+            console.log(filePath);
+            
+            fs.writeFile(filePath, data, function (err) {
+                if(err){
+                    res.status(403).send(err);
+                }else{
+                    res.status(200).send("ok");    
+                }                
+            });
+        });
+        
+    }else{
+        res.status(400).send('file not uploaded');
+        console.log(req.file);
+    }
+})
 
 app.listen(port,ipaddress);
