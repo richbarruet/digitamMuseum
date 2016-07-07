@@ -1,9 +1,9 @@
 var express     = require('express');
 var Twig        = require("twig");
 var fs          = require('fs');
-var dest        = process.env.OPENSHIFT_DATA_DIR !== undefined ? process.env.OPENSHIFT_DATA_DIR : './ressources/'
-var multer      = require('multer');
-var upload = multer({dest: dest});
+//var dest        = process.env.OPENSHIFT_DATA_DIR !== undefined ? process.env.OPENSHIFT_DATA_DIR : './ressources/'
+//var multer      = require('multer');
+//var upload = multer({dest: dest});
 
 var app         = express();
 
