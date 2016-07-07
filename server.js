@@ -79,7 +79,7 @@ app.post('/upload',upload.single('source'),function(req,res,next){
     if(req.file !== undefined && req.file.path !== undefined) {
         
         var filename = req.file.originalname;
-        fs.readFile(req.file.path, function (err, data) {
+        /*fs.readFile(req.file.path, function (err, data) {
             if(err) {
                 res.send(500).send(err);
             }
@@ -93,7 +93,7 @@ app.post('/upload',upload.single('source'),function(req,res,next){
                     res.status(200).send("ok");    
                 }                
             });
-        });
+        });*/
         
     }else{
         res.status(400).send('file not uploaded');
