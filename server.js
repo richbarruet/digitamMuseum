@@ -77,13 +77,18 @@ app.get('/version/:platform', function(req, res){
             var apps = jsonContent.apps;
             
             var application = undefined;
-            for (app of apps){
+            apps.forEach(function(app) {
+                if(platform == app.platform){
+                    application = app; 
+                }                
+            }, this);
             /*
+            for (app of apps){
                 if(platform == app.platform){
                     application = app; 
                 }
-            */
             }
+            */
 
             if(application == undefined){
                 res.json({
