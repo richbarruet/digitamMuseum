@@ -68,6 +68,7 @@ app.get('/version/:platform', function(req, res){
     }
     */
 
+            /*
     fs.readFile(dest + "versions.json" , function (err, data) {
             if(err) {
                 res.send(500).send(err);
@@ -90,6 +91,7 @@ app.get('/version/:platform', function(req, res){
                 res.json(application);
             }
         });
+            */
 });
 
 app.get('/', function(req, res){
