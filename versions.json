@@ -3,11 +3,11 @@
         {
             "platform"	: "android",
             "version"   : "1.0.0",
-            "url"       : "URLpourAndroid"
+            "url"       : "market://details?id=com.google.android.apps.maps"
         },{
             "platform"	: "ios",
             "version"   : "1.0.0",
-            "url"       : "URLpourIOS"
+            "url"       : "itms://google-maps-navigation-en/id585027354?mt=8"
         }
     ]
 }
