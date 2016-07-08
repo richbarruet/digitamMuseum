@@ -40,35 +40,12 @@ if (typeof ipaddress == "undefined") {
 app.set("twig options", {
     strict_variables: false
 });
-/*
-app.get('/', function(req, res){
-    res.redirect("/android");
-});
-*/
+
 app.get('/version/:platform', function(req, res){
     var platform = req.params.platform;
-    
-    /*
-    var contents = fs.readFileSync("ressources/versions.json");
-    var jsonContent = JSON.parse(contents,null,2); 
-    var apps = jsonContent.apps;
 
-    var application = undefined;
-    for (app of apps){
-        if(platform == app.platform){
-            application = app; 
-        }
-    }
-    if(application == undefined){
-        res.json({
-            "error"     : "Plateforme incorrecte"
-        });
-    }else{
-        res.json(application);
-    }
-    */
-
-    fs.readFile(dest + "versions.json" , function (err, data) {
+    //fs.readFile(dest + "versions.json" , function (err, data) {
+    fs.readFile("./ressources/versions.json" , function (err, data) {
             if(err) {
                 res.send(500).send(err);
             }
@@ -101,9 +78,10 @@ app.get('/version/:platform', function(req, res){
 });
 
 app.get('/', function(req, res){
-    res.render("upload.twig");
+    //res.render("upload.twig");
+    res.render("/version/android");
 });
-
+/*
 app.post('/upload',upload.single('source'),function(req,res,next){
     
     if(req.file !== undefined && req.file.path !== undefined) {
@@ -130,5 +108,6 @@ app.post('/upload',upload.single('source'),function(req,res,next){
         console.log(req.file);
     }
 })
+*/
 
 app.listen(port,ipaddress);
