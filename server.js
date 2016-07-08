@@ -18,7 +18,7 @@ if (typeof ipaddress == "undefined") {
 };
 
 // Add headers
-/*app.use(function (req, res, next) {
+app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
@@ -35,7 +35,7 @@ if (typeof ipaddress == "undefined") {
 
     // Pass to next layer of middleware
     next();
-});*/
+});
 
 app.set("twig options", {
     strict_variables: false
@@ -79,7 +79,7 @@ app.get('/version/:platform', function(req, res){
 
 app.get('/', function(req, res){
     //res.render("upload.twig");
-    res.render("/version/android");
+    res.redirect("/version/android");
 });
 /*
 app.post('/upload',upload.single('source'),function(req,res,next){
